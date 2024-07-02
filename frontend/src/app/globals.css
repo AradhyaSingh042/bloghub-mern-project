@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.post {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+}
+
+.content-box a {
+  font-weight: 600;
+  text-decoration: underline;
+}
