@@ -5,7 +5,7 @@ const cookieParser = require("cookie-parser");
 
 // middlewares
 app.use(express.json());
-app.use(cors({ credentials: true, origin: "https://bloghub-frontend.vercel.app" }));
+app.use(cors({ credentials: true, origin: "*" }));
 app.use(cookieParser());
 app.use(express.static(__dirname + "/uploads"));
 
