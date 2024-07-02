@@ -25,7 +25,7 @@ const Post = ({ postData }) => {
         <div className="image-container">
           <Link href={`/post/${postData._id}`}>
             <Image
-              src={"http://localhost:4000/" + postData.cover}
+              src={"https://bloghub-backend-itag.onrender.com/" + postData.cover}
               width={400}
               height={400}
               alt="blogThumbnail"

@@ -42,7 +42,7 @@ const CreatePost = () => {
       data.set("file", postData.file);
       data.set("content", content);
 
-      const res = await fetch("http://localhost:4000/api/v1/createPost", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_REACT_APP_BASE_URL}/createPost`, {
         method: "POST",
         body: data,
         credentials: "include",

@@ -18,9 +18,12 @@ const Navbar = () => {
   }, []);
 
   async function fetchProfileData() {
-    const res = await fetch("http://localhost:4000/api/v1/profile", {
-      credentials: "include",
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_REACT_APP_BASE_URL}/profile`,
+      {
+        credentials: "include",
+      }
+    );
 
     const data = await res.json();
     if (data) {
@@ -29,10 +32,13 @@ const Navbar = () => {
   }
 
   async function logout() {
-    const res = await fetch("http://localhost:4000/api/v1/logout", {
-      method: "POST",
-      credentials: "include",
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_REACT_APP_BASE_URL}/logout`,
+      {
+        method: "POST",
+        credentials: "include",
+      }
+    );
     setUserInfo(null);
     router.push("/login");
   }

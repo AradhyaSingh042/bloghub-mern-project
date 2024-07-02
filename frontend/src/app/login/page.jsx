@@ -28,14 +28,17 @@ const Login = () => {
   });
 
   async function login(formData) {
-    const res = await fetch("http://localhost:4000/api/v1/login", {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_REACT_APP_BASE_URL}/login`,
+      {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      }
+    );
 
     const data = await res.json();
 

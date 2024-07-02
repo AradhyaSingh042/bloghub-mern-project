@@ -6,6 +6,7 @@ const nextConfig = {
       {
         hostname: "techcrunch.com",
         hostname: "localhost",
+        hostname: "bloghub-backend-itag.onrender.com",
       },
     ],
   },

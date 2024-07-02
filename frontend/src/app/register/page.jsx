@@ -28,13 +28,16 @@ const Register = () => {
   });
 
   async function register(formData) {
-    const res = await fetch("http://localhost:4000/api/v1/register", {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_REACT_APP_BASE_URL}/register`,
+      {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     const data = await res.json();
     console.log(data);

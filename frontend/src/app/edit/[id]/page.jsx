@@ -40,7 +40,9 @@ const EditPostPage = ({ params }) => {
   }, []);
 
   async function fetchEditPostData() {
-    const res = await fetch(`http://localhost:4000/api/v1/post/${id}`);
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_REACT_APP_BASE_URL}/post/${id}`
+    );
     const data = await res.json();
     formik.setFieldValue("title", data.data.title);
     formik.setFieldValue("summary", data.data.summary);
@@ -55,11 +57,14 @@ const EditPostPage = ({ params }) => {
     data.set("file", postData.file);
     data.set("content", content);
 
-    const res = await fetch(`http://localhost:4000/api/v1/editPost/${id}`, {
-      method: "PUT",
-      body: data,
-      credentials: "include",
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_REACT_APP_BASE_URL}/editPost/${id}`,
+      {
+        method: "PUT",
+        body: data,
+        credentials: "include",
+      }
+    );
 
     const finalData = await res.json();
   }

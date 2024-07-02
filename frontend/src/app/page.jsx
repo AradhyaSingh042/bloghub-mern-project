@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 // import Post from "@/components/Post";
 import dynamic from "next/dynamic";
 const Post = dynamic(() => import("@/components/Post"));
@@ -14,7 +14,9 @@ export default function Home() {
   }, [posts]);
 
   async function fetchPostData() {
-    const res = await fetch("http://localhost:4000/api/v1/getPosts");
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_REACT_APP_BASE_URL}/getPosts`
+    );
     const data = await res.json();
     setPosts(data.data);
   }
